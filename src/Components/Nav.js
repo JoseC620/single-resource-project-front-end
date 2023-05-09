@@ -4,14 +4,14 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 
-export default function nav () {
+export default function Nav() {
 
   return (
     <NavBar bg='primary' expand='lg' varient='light'>
         <Container>
-            <NavBar.Brand>Snacks! click 🍪 here! </NavBar.Brand>
+            <Link to={'/snacks'}>Snacks! click 🍪 here! </Link>
             <Button varient='light'>
-                <Link to={'snacks/new'}>🍪 New Snack</Link>
+                <Link to={'/snacks/new'}>🍪 New Snack</Link>
             </Button>
         </Container>
     </NavBar>

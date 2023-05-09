@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 
-export default function Snack ({snack}) {
+export default function Snack( { snack } ) {
+
+
+  
+
+
   return (
    <tr className='snack'>
     <td>
