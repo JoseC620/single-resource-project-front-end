@@ -9,6 +9,7 @@ export default function Nav() {
   return (
     <NavBar bg='primary' expand='lg' varient='light'>
         <Container>
+          <Link to={'/'}>Home</Link>
             <Link to={'/snacks'}>Snacks! click 🍪 here! </Link>
             <Button varient='light'>
                 <Link to={'/snacks/new'}>🍪 New Snack</Link>

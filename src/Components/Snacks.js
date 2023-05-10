@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Snack from "./Snack";
@@ -24,19 +23,13 @@ export default function Snacks() {
 
     return(
         <div>
+        <table>
+        <tbody>
             {snacks.map((snack) => {
-                return (
-                    <div key={snack.id}>
-                        <ul>
-                            <Link to={`/snacks/${snack.id}`}>
-                            <img src={snack.image} width="100" height="100" alt="snack"/>
-                            {snack.name}
-                            </Link>
-                        </ul>
-                    </div>
-                    
-                )
+              return <Snack key={snack.id} snack={snack} />;
             })}
+          </tbody>
+          </table>
         </div>
     )
 }

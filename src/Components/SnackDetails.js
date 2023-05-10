@@ -3,19 +3,19 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 // const { getAllSnacks, getSnack, createSnack, deleteSnack, updateSnack } = require('../queries/snacks');
+const API = process.env.REACT_APP_API_URL;
 
 export default function SnackDetails() {
-    const [ snack, setSnacks ] = useState([]);
-    const {id} = useParams();
+    const [ snack, setSnack ] = useState([]);
+    const { id } = useParams();
     const navigate = useNavigate();
-    const API = process.env.REACT_APP_API_URL;
     
     useEffect(() => {
         axios
         .get(`${API}/snacks/${id}`)
         .then((res) => {
             console.log(res.data);
-            setSnacks(res.data);
+            setSnack(res.data);
         }).catch((e) => {
             console.warn('catch', e)
         })
@@ -39,11 +39,11 @@ export default function SnackDetails() {
   return (
     <div className='snack-details'>
     <Container>
-        <h2>{snacks}</h2>
-        <p>{snacks}</p>
-        <p>{snacks}</p>
-        <p>{snacks}</p>
-        <p>{snacks.is_healthy ? <span>♥️</span> : null} {snacks.name}</p>
+        <h2>{snack.name}</h2>
+        <img src={snack.image} alt="snack" height='100' width='100'/>
+        {/* <p>{snacks}</p>
+        <p>{snacks}</p> */}
+        <p>{snack.is_healthy ? <span>❤️</span> : null}</p>
     
       <div className="showNavigation">
         <div>

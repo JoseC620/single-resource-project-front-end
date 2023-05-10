@@ -10,7 +10,6 @@ import Show from './Pages/Show';
 function App() {
 
 
-
   return (
     <div className='App'>
       <Router>

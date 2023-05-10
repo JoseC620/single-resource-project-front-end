@@ -1,9 +1,9 @@
-import Snack from "../Components/Snack"
+import SnackDetails from "../Components/SnackDetails"
 
 export default function Show() {
   return (
     <div>
-      {/* <Snack /> */}
+      <SnackDetails />
       Show Page
     </div>
   )
