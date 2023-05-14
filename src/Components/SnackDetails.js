@@ -2,7 +2,6 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
-// const { getAllSnacks, getSnack, createSnack, deleteSnack, updateSnack } = require('../queries/snacks');
 const API = process.env.REACT_APP_API_URL;
 
 export default function SnackDetails() {

@@ -21,6 +21,9 @@ export default function Snacks() {
         })
     }, [])
 
+    // for some reason whenever i make an edit to a snack it gets put to the end of the array, this is to keep it from not changing position on the webpage.
+    snacks.sort((a, b) => a.id - b.id);
+
     return(
         <div>
         <table>

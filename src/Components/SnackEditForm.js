@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { useParams, Link, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 const API = process.env.REACT_APP_API_URL;
@@ -37,10 +37,6 @@ export default function SnackEditForm() {
         setSnack({...snack, [event.target.id]: event.target.value })
     }
 
-    const handleCheckboxChange = () => {
-        setSnack({ ...snack, is_healthy: !snack.is_healthy });
-      };
-
     const handleCategoryChange = (event) => {
         setSnack({ ...snack, category: event.value });
       };
@@ -56,11 +52,21 @@ export default function SnackEditForm() {
         })
     }, [id]);
 
+    
+    const handleIsHealthy = () => {
+        if((snack.protein >= 5 || snack.fiber >= 5) && snack.sugar <= 5){
+            snack.is_healthy = true
+        } else {
+            snack.is_healthy = false
+        }
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        handleIsHealthy();
         updateSnack(snack, id);
       };
-
+    
     const options = ['cookies', 'chocolate', 'candy', 'chips']
 
     return(
@@ -84,7 +90,45 @@ export default function SnackEditForm() {
                 required
                 />
                 <label>Category</label>
-                <Dropdown options={options} onChange={handleCategoryChange} value={snack.category} placeholder="Select an option" id='category'/>;
+                <Dropdown 
+                options={options} 
+                onChange={handleCategoryChange} 
+                value={snack.category} 
+                placeholder="Select an option" 
+                id='category'
+                />
+                <label>Protein</label>
+                <input 
+                id="protein"
+                value={snack.protein}
+                type="number"
+                onChange={handleTextChange}
+                required
+                />
+                <label>Fiber</label>
+                <input 
+                id="fiber"
+                value={snack.fiber}
+                type="number"
+                onChange={handleTextChange}
+                required
+                />
+                <label>Sugar</label>
+                <input 
+                id="sugar"
+                value={snack.sugar}
+                type="number"
+                onChange={handleTextChange}
+                required
+                />
+                <label>Serving Size</label>
+                <input 
+                id="serving_size"
+                value={snack.serving_size}
+                type="text"
+                onChange={handleTextChange}
+                required
+                />
                 <br />
 
                 <input type="submit" />
