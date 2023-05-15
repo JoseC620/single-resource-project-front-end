@@ -10,7 +10,7 @@ export default function SnackDetails() {
     const [ snack, setSnack ] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
 
-    
+
     const showModal = () => {
       setIsOpen(true);
     };
@@ -18,6 +18,7 @@ export default function SnackDetails() {
     const hideModal = () => {
       setIsOpen(false);
     };
+
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -51,16 +52,16 @@ export default function SnackDetails() {
     <div className='snack-details'>
     <Container>
         <h2>{snack.name}</h2>
-        <img src={snack.image} alt="snack" height='100' width='100'/>
+        <img src={snack.image} alt="snack" height='200' width='200'/>
         <ul>
         <li>
         <span><b>Protein: </b>{snack.protein}</span>
         </li>
         <li>
-        <span><b>Protein: </b>{snack.fiber}</span>
+        <span><b>Fiber: </b>{snack.fiber}</span>
         </li>
         <li>
-        <span><b>Protein: </b>{snack.sugar}</span>
+        <span><b>Sugar: </b>{snack.sugar}</span>
         </li>
         <li>
         <span>Is this snack healthy?: {snack.is_healthy ? <span>✅</span> : <span>❌</span>}</span>
@@ -78,7 +79,7 @@ export default function SnackDetails() {
           <button>EDIT</button>
           </Link>
           <button onClick={showModal}>DELETE</button>
-      <Modal show={isOpen} onHide={hideModal}>
+        <Modal show={isOpen} onHide={hideModal}>
         <Modal.Header>
           <Modal.Title>Confirmation</Modal.Title>
         </Modal.Header>

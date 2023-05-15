@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Container } from "react-bootstrap";
 import Snack from "./Snack";
 
 const API = process.env.REACT_APP_API_URL;
@@ -25,10 +26,14 @@ export default function Snacks() {
     snacks.sort((a, b) => a.id - b.id);
 
     return(
-        <div>
+        <Container className="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-5 justify-content-center">
             {snacks.map((snack) => {
-              return <Snack key={snack.id} snack={snack} />;
+              return ( 
+                <div>
+                <Snack key={snack.id} snack={snack} />
+                </div>
+              )
             })}
-        </div>
+        </Container>
     )
 }
