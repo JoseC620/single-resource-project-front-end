@@ -26,13 +26,9 @@ export default function Snacks() {
 
     return(
         <div>
-        <table>
-        <tbody>
             {snacks.map((snack) => {
               return <Snack key={snack.id} snack={snack} />;
             })}
-          </tbody>
-          </table>
         </div>
     )
 }

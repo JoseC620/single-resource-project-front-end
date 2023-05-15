@@ -4,7 +4,6 @@ export default function Show() {
   return (
     <div>
       <SnackDetails />
-      Show Page
     </div>
   )
 }

@@ -7,7 +7,6 @@ export default function Snack( { snack } ) {
     <td>
         <Link to={`/snacks/${snack.id}`}>{snack.name}</Link>
     </td>
-    {/* <td>{snack.name}</td>   */}
     <td> <img src={snack.image} alt='snack' width='100' height='100'/></td>
     <td>{snack.is_healthy ? '❤️' : null}</td>
    </tr>

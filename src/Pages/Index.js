@@ -4,7 +4,6 @@ export default function Index() {
   return (
     <div>
       <Snacks />
-      Index Page
     </div>
   )
 }

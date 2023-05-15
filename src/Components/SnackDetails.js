@@ -2,10 +2,22 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
+import { Modal } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 const API = process.env.REACT_APP_API_URL;
 
 export default function SnackDetails() {
     const [ snack, setSnack ] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
+    
+    const showModal = () => {
+      setIsOpen(true);
+    };
+  
+    const hideModal = () => {
+      setIsOpen(false);
+    };
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -40,9 +52,20 @@ export default function SnackDetails() {
     <Container>
         <h2>{snack.name}</h2>
         <img src={snack.image} alt="snack" height='100' width='100'/>
-        {/* <p>{snacks}</p>
-        <p>{snacks}</p> */}
-        <p>{snack.is_healthy ? <span>❤️</span> : null}</p>
+        <ul>
+        <li>
+        <span><b>Protein: </b>{snack.protein}</span>
+        </li>
+        <li>
+        <span><b>Protein: </b>{snack.fiber}</span>
+        </li>
+        <li>
+        <span><b>Protein: </b>{snack.sugar}</span>
+        </li>
+        <li>
+        <span>Is this snack healthy?: {snack.is_healthy ? <span>✅</span> : <span>❌</span>}</span>
+        </li>
+        </ul>
     
       <div className="showNavigation">
         <div>
@@ -54,9 +77,19 @@ export default function SnackDetails() {
           <Link to={`/snacks/${id}/edit`} >
           <button>EDIT</button>
           </Link>
+          <button onClick={showModal}>DELETE</button>
+      <Modal show={isOpen} onHide={hideModal}>
+        <Modal.Header>
+          <Modal.Title>Confirmation</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete this snack?</Modal.Body>
+        <Modal.Footer>
+          <button onClick={hideModal}>CANCEL</button>
           <button onClick={handleDelete}>DELETE</button>
+        </Modal.Footer>
+      </Modal>
         </div>
-      </div>
+        </div>
     </Container>
   </div>
   );
