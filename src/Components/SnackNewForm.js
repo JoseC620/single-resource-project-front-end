@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 const API = process.env.REACT_APP_API_URL;
@@ -55,7 +56,8 @@ export default function SnackNewForm() {
 
     return(
         <div>
-            <img src={snack.image} alt="Put a Snack!" width='100' height='100'/>
+            <Container>
+            <img src={snack.image} alt="Put a Snack!" width='300' height='300'/>
             <form onSubmit={handleSubmit}>
                 <label>Image</label>
                 <input 
@@ -75,6 +77,7 @@ export default function SnackNewForm() {
                 />
                 <label>Category</label>
                 <Dropdown 
+                className="drop"
                 options={options} 
                 onChange={handleCategoryChange} 
                 value={snack.category} 
@@ -116,6 +119,7 @@ export default function SnackNewForm() {
                 <br />
                 <input type="submit" />
             </form>
+            </Container>
         </div>
     )
 }

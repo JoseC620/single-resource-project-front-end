@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <div>
-      Home Page
+      <h2>Welcome To Our Snacks React App!</h2>
     </div>
   )
 }

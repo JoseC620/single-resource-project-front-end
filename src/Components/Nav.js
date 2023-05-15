@@ -9,11 +9,9 @@ export default function Nav() {
   return (
     <NavBar bg='primary' expand='lg' varient='light'>
         <Container>
-          <Link to={'/'}>Home</Link>
-            <Link to={'/snacks'}>Snacks! click 🍪 here! </Link>
-            <Button varient='light'>
-                <Link to={'/snacks/new'}>🍪 New Snack</Link>
-            </Button>
+          <Link to={'/'} style={{color: "Black"}}>Home</Link>
+            <Link to={'/snacks'} style={{color: "Black"}}>Snacks! click 🍪 here! </Link>
+                <Link to={'/snacks/new'} style={{color: "Black"}}>🍪 Make A New Snack!</Link>
         </Container>
     </NavBar>
   );

@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Dropdown from 'react-dropdown';
+import { Container, Col, Row, Form } from "react-bootstrap";
 import 'react-dropdown/style.css';
 const API = process.env.REACT_APP_API_URL;
 
@@ -71,7 +72,7 @@ export default function SnackEditForm() {
 
     return(
         <div>
-            <img src={snack.image} alt="snack" width='100' height='100'/>
+            <img src={snack.image} alt="snack" width='300' height='300'/>
             <form onSubmit={handleSubmit}>
                 <label>Image</label>
                 <input 
@@ -89,8 +90,10 @@ export default function SnackEditForm() {
                 onChange={handleTextChange}
                 required
                 />
+                <br />
                 <label>Category</label>
                 <Dropdown 
+                className="drop"
                 options={options} 
                 onChange={handleCategoryChange} 
                 value={snack.category} 
@@ -130,7 +133,6 @@ export default function SnackEditForm() {
                 required
                 />
                 <br />
-
                 <input type="submit" />
             </form>
         </div>
