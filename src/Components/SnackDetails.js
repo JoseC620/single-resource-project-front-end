@@ -51,7 +51,7 @@ export default function SnackDetails() {
   return (
     <div className='snack-details'>
     <Container>
-        <h2>{snack.name}</h2>
+        <h2><span>{snack.is_healthy ? '❤️' : null}</span>{snack.name}</h2>
         <img src={snack.image} alt="snack" height='200' width='200'/>
         <ul>
         <li>
