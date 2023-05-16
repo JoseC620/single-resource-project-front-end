@@ -15,7 +15,6 @@ export default function Snacks() {
         .get(`${API}/snacks`)
         .then((response) =>{
             setSnacks(response.data)
-            console.log(response.data)
         })
         .catch((error) => {
             console.warn(error)

@@ -2,7 +2,6 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Dropdown from 'react-dropdown';
-import { Container, Col, Row, Form } from "react-bootstrap";
 import 'react-dropdown/style.css';
 const API = process.env.REACT_APP_API_URL;
 
@@ -46,7 +45,6 @@ export default function SnackEditForm() {
         axios
         .get(`${API}/snacks/${id}`)
         .then((res) => {
-            console.log(res.data);
             setSnack(res.data);
         }).catch((e) => {
             console.warn('catch', e)
