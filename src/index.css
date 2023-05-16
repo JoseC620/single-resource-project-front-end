@@ -1,3 +1,17 @@
 .drop {
     width: 150px;
 }
+
+.spinner {
+    animation: spin 2s linear infinite; /* Set the animation properties */
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg); /* Initial rotation */
+    }
+    100% {
+      transform: rotate(180deg); /* Final rotation */
+    }
+}
+
