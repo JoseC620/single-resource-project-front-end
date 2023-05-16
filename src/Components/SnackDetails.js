@@ -26,7 +26,6 @@ export default function SnackDetails() {
         axios
         .get(`${API}/snacks/${id}`)
         .then((res) => {
-            console.log(res.data);
             setSnack(res.data);
         }).catch((e) => {
             console.warn('catch', e)
