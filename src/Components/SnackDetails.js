@@ -27,10 +27,11 @@ export default function SnackDetails() {
         .get(`${API}/snacks/${id}`)
         .then((res) => {
             setSnack(res.data);
-        }).catch((e) => {
+          }).catch((e) => {
             console.warn('catch', e)
-        })
-    }, [id]);
+          })
+        }, [id]);
+
 
 
     const deleteSnack = () => {
@@ -53,6 +54,9 @@ export default function SnackDetails() {
         <h2>{snack.name}</h2>
         <img src={snack.image} alt="snack" height='200' width='200'/>
         <ul>
+        <li>
+        <span><b>Category: </b>{snack.category}</span>
+        </li>
         <li>
         <span><b>Protein: </b>{snack.protein}</span>
         </li>
