@@ -2,7 +2,7 @@ React App made my Jose Cepeda and Shareeka Epps
 
 Welcome to the `Oh Snack App`
 
-Here is the link to the deployed “front-end app link” and “back-end API link”.
+Here is the link to the deployed “https://64653616fc6b8213ada4836e--rad-semolina-ca4f2d.netlify.app” and “https://favoritesnacks.onrender.com”.
 To install application locally, fork and clone this project and run npm install.
 Create a .env file with the variable "REACT_APP_API_URL=  DEPLOYED LINK HERE ". This will link your front-end to the backend.
 The repo for the back-end is: https://github.com/JoseC620/single-resource-back-end.
